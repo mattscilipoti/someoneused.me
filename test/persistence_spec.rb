@@ -2,6 +2,7 @@
 ENV['RACK_ENV'] = 'test'
 
 
+gem 'minitest'
 require 'minitest/autorun'
 require 'rack/test'
 
@@ -13,19 +14,28 @@ rescue LoadError
   require File.expand_path('../someoneusedme', __FILE__)
 end
 
-class MyTest < MiniTest::Unit::TestCase
+# clean db before each run
+MiniTest::Unit::TestCase.class_eval do
+  def setup
+    redis.flushdb
+  end
+end
 
-  include Rack::Test::Methods
+include Rack::Test::Methods
 
-  def app() Sinatra::Application end
+def app
+  Sinatra::Application
+end
 
-  def test_post_to_usage_should_increment_count
+
+describe "post /usage, :id" do
+  it "should incr the key" do
     post '/usage', {:id => 'TEST'}
     assert last_response.ok?, "expected ok, got #{last_response.status}"
 
-    get "/usage/TEST"
+    get "usage/TEST"
     assert last_response.ok?
-    assert_equal '1', last_response.body
+    last_response.body.must_equal '1'
   end
 end
 
