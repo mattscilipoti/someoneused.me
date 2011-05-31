@@ -34,9 +34,9 @@ describe "post /usage, :id" do
     post '/usage', {:id => 'TEST'}
     assert last_response.ok?, "expected ok, got #{last_response.status}"
 
-    get "usage/TEST"
+    get "usage/TEST.json"
     assert last_response.ok?, "expected ok, got #{last_response.status}"
-    last_response.body.must_equal '1'
+    last_response.body.must_equal '1'.to_json
   end
 end
 

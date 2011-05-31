@@ -1,5 +1,5 @@
+require 'json'
 require 'sinatra'
-# require 'json'
 require 'sinatra/redis'
 
 # Establish the database connection; or, omit this and use the REDIS_URL
@@ -9,9 +9,11 @@ require 'sinatra/redis'
 # set :redis, 'redis://some-remote-server:1234/5'
 # At this point, you can access the Redis object using the "redis" object:
 
+# References:
+# * http://www.slideshare.net/adamwiggins/rails-metal-rack-and-sinatra
 
-get '/usage/:id' do |id|
-  redis.get(id)
+get '/usage/:id.json' do |id|
+  redis.get(id).to_json
 end
 
 post '/usage' do

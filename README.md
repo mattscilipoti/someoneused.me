@@ -19,4 +19,4 @@ References
 * https://github.com/newtoy/toystore
 * https://github.com/jnunemaker/adapter-redis
 * https://github.com/wycats/moneta
-
+* http://blindgaenger.github.com/sinatra-rest/
