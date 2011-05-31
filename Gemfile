@@ -3,6 +3,7 @@ source "http://rubygems.org"
 # gem "adapter-redis"
 # gem 'json'
 gem 'minitest'
+gem 'rake'
 gem 'sinatra'
 gem "sinatra-redis"
 # gem "toystore"
