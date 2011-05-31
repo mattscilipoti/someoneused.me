@@ -11,7 +11,7 @@ require 'sinatra/redis'
 
 
 get '/usage/:id' do |id|
-  redis.get(params[:id])
+  redis.get(id)
 end
 
 post '/usage' do
