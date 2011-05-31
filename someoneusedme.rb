@@ -7,7 +7,6 @@ require 'sinatra/redis'
 #
 # NOTE: The database is the integer in the path
 # set :redis, 'redis://some-remote-server:1234/5'
-set :redis, 'redis://localhost:6379/5'
 # At this point, you can access the Redis object using the "redis" object:
 
 
