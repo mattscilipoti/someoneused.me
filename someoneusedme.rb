@@ -1,3 +1,4 @@
+require 'haml'
 require 'json'
 require 'sinatra'
 require 'sinatra/redis'
@@ -11,11 +12,34 @@ require 'sinatra/redis'
 
 # References:
 # * http://www.slideshare.net/adamwiggins/rails-metal-rack-and-sinatra
+# * respond_with: https://github.com/sinatra/sinatra-contrib/blob/master/lib/sinatra/respond_with.rb
 
 get '/usage/:id.json' do |id|
   redis.get(id).to_json
 end
 
+get '/usage/:id' do |id|
+  haml :get, :id => id
+end
+
 post '/usage' do
   redis.incr(params[:id])
 end
+
+__END__
+@@ layout
+%html
+  %head
+    %title Haml on Sinatra Example
+  %body
+    =yield
+
+@@ get
+#header
+  %h1 Haml on Sinatra Example
+#content
+  %p
+    This is an example of using Haml on Sinatra.
+    You can use Haml in all your projeccts now, instead
+    of Erb. I'm sure you'll find it much easier!
+

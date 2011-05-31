@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 # gem "adapter-redis"
+gem 'haml'
 gem 'json'
 gem 'minitest'
 gem 'rake'
