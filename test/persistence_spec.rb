@@ -8,7 +8,7 @@ require 'rack/test'
 
 begin
   require_relative '../someoneusedme'
-  set :redis, 'redis://localhost:6379/5'
+  set :redis, 'redis://localhost:6379/0'
   # redis.connections.each {|r| r.flushdb }
   redis.flushdb
 rescue LoadError
@@ -35,7 +35,7 @@ describe "post /usage, :id" do
     assert last_response.ok?, "expected ok, got #{last_response.status}"
 
     get "usage/TEST"
-    assert last_response.ok?
+    assert last_response.ok?, "expected ok, got #{last_response.status}"
     last_response.body.must_equal '1'
   end
 end
