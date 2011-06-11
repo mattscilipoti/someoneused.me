@@ -6,6 +6,16 @@ Ideas
 ---------
 * basic auth
 * pictures of your app app being used
+* Metrics
+  * Unique uses
+  * Frequency
+  * Trends
+  * Used by
+  * Versions in use
+
+Todo
+-----
+* https://github.com/sconover/wrong
 
 ---
 
