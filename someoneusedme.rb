@@ -7,7 +7,7 @@ require 'sinatra/redis'
 # environment variable as the connection string; or, default to redis://locahost:6379/0
 #
 # NOTE: The database is the integer in the path
-# set :redis, 'redis://some-remote-server:1234/5'
+set :redis, 'redis://some-remote-server:1234/6' # even for dev, odd for test
 # At this point, you can access the Redis object using the "redis" object:
 
 # References:

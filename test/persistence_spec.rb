@@ -8,7 +8,7 @@ require 'rack/test'
 
 begin
   require_relative '../someoneusedme'
-  set :redis, 'redis://localhost:6379/0'
+  set :redis, 'redis://localhost:6379/7' # even for dev, odd for test
   # redis.connections.each {|r| r.flushdb }
   redis.flushdb
 rescue LoadError
