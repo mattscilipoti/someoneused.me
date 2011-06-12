@@ -56,7 +56,7 @@ describe "get /usage" do
 
   describe "using accept header" do
     it "should return results as json" do
-      get "usage/TEST", {}, { 'HTTP_CONTENT_TYPE' => 'application/json', 'HTTP_ACCEPT' => 'application/json' }
+      get "usage/TEST", {}, { 'HTTP_ACCEPT' => 'application/json' }
 
       assert last_response.ok?, "expected ok, got #{last_response.status}"
       last_response.body.must_equal ({ :usages => '1' }.to_json)

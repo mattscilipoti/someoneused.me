@@ -21,11 +21,10 @@ get '/usage/:id.json' do |id|
   data.to_json
 end
 
-# get '/usage/:id', :provides => [:html, :json] do |id|
-get '/usage/:id' do |id|
+get '/usage/:id', :provides => [:html, :json] do |id|
   data = { :usages => redis.get(id) }
-puts "\na=#{request.accept.inspect}"
-puts "\nr=#{request.inspect}"
+# puts "\na=#{request.accept.inspect}"
+# puts "\nr=#{request.inspect}"
   request.accept.each do |type|
     case type
     when 'application/json'
