@@ -12,6 +12,11 @@ Ideas
   * Trends
   * Used by
   * Versions in use
+* include (some?) in rubygems.org
+
+Tips
+-----
+* https://github.com/sickill/racksh
 
 Todo
 -----
